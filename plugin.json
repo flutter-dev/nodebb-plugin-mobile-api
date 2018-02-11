@@ -1,0 +1,23 @@
+{
+	"id": "nodebb-plugin-mobile-api",
+	"url": "https://github.com/tain335/nodebb-plugin-mobile-api",
+	"library": "./library.js",
+	"hooks": [
+		{ "hook": "static:app.load", "method": "init" },
+		{ "hook": "filter:admin.header.build", "method": "addMenuItem" },
+		{ "hook": "filter:parse.signature", "method": "parseSignature", "priority": 1 }
+	],
+	"staticDirs": {
+		"static": "./static"
+	},
+	"less": [
+		"static/style.less"
+	],
+	"scripts": [
+		"static/lib/main.js"
+	],
+	"acpScripts": [
+		"static/lib/admin.js"
+	],
+	"templates": "static/templates"
+}

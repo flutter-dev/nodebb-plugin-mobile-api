@@ -1,0 +1,29 @@
+{
+  "name": "nodebb-plugin-mobile-api",
+  "version": "0.0.1",
+  "description": "Mobile API for NodeBB",
+  "main": "library.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flutter-dev/nodebb-plugin-mobile-api"
+  },
+  "keywords": [
+    "nodebb",
+    "plugin",
+    "mobile",
+    "api",
+    "shell"
+  ],
+  "author": {
+    "name": "tain335",
+    "email": "649397393@qq.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flutter-dev/nodebb-plugin-mobile-api/issues"
+  },
+  "readmeFilename": "README.md",
+  "nbbpm": {
+    "compatibility": "^1.0.0"
+  }
+}
