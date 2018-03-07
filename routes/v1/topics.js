@@ -2,7 +2,7 @@ var Topics = require.main.require('./src/topics');
 var topics = require('../../controllers/topics');
 var errorHandler = require('../../lib/errorHandler');
 
-module.exports =  function(app, middleware) {
+module.exports = function(app, middleware) {
     app.get('/', function(req, res) {
         var start = Number(req.query.after || 0);
         var stop = Number(start + (req.query.count || 19));
