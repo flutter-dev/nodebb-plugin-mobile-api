@@ -105,5 +105,23 @@ module.exports = {
                 next(null, data.topic);
             },
         ], callback);
+    },
+    getTopic: function getTopic(tid, callback) {
+        var self = this;
+        Topics.getTopicData(tid, function(err, topic) {
+            if(err) {
+                return callback(err);
+            }
+            var set = 'tid:' + tid + ':posts';
+			//var reverse = false;
+			// var sort = req.query.sort;
+			// if (sort === 'newest_to_oldest') {
+			// 	reverse = true;
+			// } else if (sort === 'most_votes') {
+			// 	reverse = true;
+			// 	set = 'tid:' + tid + ':posts:votes';
+			// }
+            self.getTopicWithPosts(topic, set, '', 0, 999, false, callback);
+        });
     }
 }

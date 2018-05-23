@@ -6,6 +6,8 @@ const auth = require('../../controllers/auth');
 module.exports = function(app, middleware) {
     app.post('/login', Auth.middleware.applyBlacklist, auth.login);
 
+    app.post('/logout', auth.logout);
+
     app.post('/register', function(req, res) {
         res.status(200).json({});
     });

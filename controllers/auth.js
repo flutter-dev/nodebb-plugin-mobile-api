@@ -1,4 +1,4 @@
-const passport = require('passport');
+const passport = require.main.require('passport'); //require vs require.main?
 const helpers = require.main.require('./src/controllers/helpers');
 const winston = require('winston');
 const user = require.main.require('./src/user');
@@ -8,7 +8,6 @@ const meta = require.main.require('./src/meta');
 const utils = require.main.require('./src/utils');
 const validator = require.main.require('validator');
 const authenticationController = require.main.require('./src/controllers/authentication');
-
 function continueLogin(req, res, next) {
 	passport.authenticate('local', function (err, userData, info) {
 		if (err) {
@@ -73,7 +72,7 @@ function continueLogin(req, res, next) {
 }
 
 module.exports = {
-    login : function login (req, res, next) {
+    login: function login (req, res, next) {
         if (plugins.hasListeners('action:auth.overrideLogin')) {
             return continueLogin(req, res, next);
         }
@@ -96,5 +95,8 @@ module.exports = {
             var err = '[[error:wrong-login-type-' + loginWith + ']]';
             helpers.noScriptErrors(req, res, err, 500);
         }
-    }
+	},
+	logout: function logout(req, res, next) {
+		authenticationController.logout(req, res, next);
+	}
 }
